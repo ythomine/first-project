@@ -27,8 +27,10 @@ Créer les fichiers du monolithe Django, les références et le workflow agentiq
 
 L’ancien squelette Poetry, son test de version et son README vide sont remplacés. Les recherches et le plan initiaux sont consolidés dans `docs/research.md` ; originaux préservés dans l’archive locale de la session, hors checkout. Aucune référence active ne doit dépendre de cette archive.
 
-L’API GitHub reçoit un refus depuis cet environnement : le workflow sera poussé, mais un run CI ne sera déclaré vérifié que si son résultat est effectivement accessible. Aucun déploiement ou connexion SQL distante validé.
+Lors du dernier essai de livraison, l’API GitHub refusait l’accès aux runs : la CI distante reste non vérifiée. Le workflow a été poussé avec le code ; sa présence ne prouve pas une exécution réussie. Aucun déploiement ou connexion SQL distante validé. La validation restante est suivie dans [la tâche 002](002-validation-socle.md).
 
 ## Revue et prochaine action
 
-Diff de référence : commit initial `3566975be7ddfabadbf8ce2ffa0db4238fc3ee25` vers les fichiers de cette tâche. Deux revues indépendantes en contexte frais ont examiné le diff final : aucun défaut actionnable. Le reviewer code a aussi exécuté `just check` hors ligne : 13 tests et tous les contrôles passent. Le wheel final a été reconstruit et comparé aux sources après la dernière correction. Push autorisé sur `setup/django-foundation`, sans fusion ; le résultat du push sera fourni dans le compte rendu de livraison. CI distante non vérifiée à cette clôture locale. Après le socle, reprendre le planning produit avec l’utilisateur ; aucun backlog métier anticipé.
+Diff de référence : commit initial `3566975be7ddfabadbf8ce2ffa0db4238fc3ee25` vers [le commit livré `aeb29bd`](https://github.com/ythomine/first-project/commit/aeb29bd84d7608eb380b404ef5962371f8e2f028). Deux revues indépendantes en contexte frais ont examiné le diff final : aucun défaut actionnable. Le reviewer code a aussi exécuté `just check` hors ligne : 13 tests et tous les contrôles passent. Le wheel final a été reconstruit et comparé aux sources après la dernière correction.
+
+Push réussi et SHA distant vérifié sur [setup/django-foundation](https://github.com/ythomine/first-project/tree/setup/django-foundation), sans fusion. La création et livraison des fichiers est terminée ; la validation complète du socle ne l’est pas encore. Prochaine action : [tâche 002](002-validation-socle.md), puis cadrage produit selon le [plan de reprise](README.md#plan-de-reprise).
