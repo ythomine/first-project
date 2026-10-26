@@ -1,15 +1,60 @@
-[tool.poetry]
-name = "first-project"
+[project]
+name = "revenue-app"
 version = "0.1.0"
-description = ""
-authors = ["ythomine"]
+description = "Socle Django pour comparer des simulations de revenus."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "django>=5.2,<5.3",
+    "psycopg[binary]>=3.2,<4",
+    "pydantic>=2.12,<3",
+    "pydantic-settings>=2.10,<3",
+]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-
-[tool.poetry.dev-dependencies]
-pytest = "^4.6"
+[dependency-groups]
+dev = [
+    "build>=1.2,<2",
+    "django-stubs[compatible-mypy]>=5.2,<5.3",
+    "import-linter>=2.15,<3",
+    "pytest>=8.3,<10",
+    "pytest-django>=4.11,<5",
+    "ruff>=0.14,<1",
+]
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/revenue_app"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+testpaths = ["tests"]
+addopts = "--import-mode=importlib --strict-markers"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "DJ"]
+
+[tool.mypy]
+python_version = "3.13"
+files = ["src"]
+strict = true
+plugins = ["mypy_django_plugin.main", "pydantic.mypy"]
+warn_unused_ignores = true
+
+[tool.django-stubs]
+django_settings_module = "tests.settings"
+
+[tool.importlinter]
+root_package = "revenue_app"
+exclude_type_checking_imports = false
+
+[[tool.importlinter.contracts]]
+name = "Le frontend ne dépend pas de l'assemblage et des secrets"
+type = "forbidden"
+source_modules = ["revenue_app.web"]
+forbidden_modules = ["revenue_app.config"]
