@@ -8,6 +8,7 @@ Ce fichier est l’entrée unique du plan de travail. Les états et preuves dét
 | --- | --- | --- |
 | 1 | [Création du socle](001-socle.md) | Fichiers de référence, squelette Django, contrôles locaux et branche poussée ; preuves dans la tâche |
 | 2 — prochaine action | [Clôturer la validation du socle](002-validation-socle.md) | Résultat CI réel, reprise de l’environnement vérifiée, limites restantes explicites et validation humaine du socle |
+| En parallèle | [Skills et Context7](003-skills-context7.md) | Skills installés avec provenance ; activation et accès Context7 suivis séparément |
 | 3 | Cadrer le produit avec l’utilisateur | Définir utilisateurs, revenu comparé, entrées/sorties, périmètre France et exercices, variantes SASU/EI/EURL, hypothèses et sources réglementaires |
 | 4 | Décider une première tranche métier | Découpage initial, scénarios de référence, règles de précision/arrondi et critères d’acceptation d’un premier parcours minimal |
 | 5 | Soumettre le planning métier à validation | Tâches petites et ordonnées avec dépendances et stratégie de tests ; aucune implémentation métier avant cet accord |

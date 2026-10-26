@@ -46,6 +46,16 @@ Les tests utilisent une base PostgreSQL isolée ; une réussite SQLite ne prouve
 
 ## Évolution
 
+### Source des règles de simulation
+
+Le choix utilisateur est de s’appuyer sur [Mon-entreprise de l’Urssaf](https://mon-entreprise.urssaf.fr/), son [code et ses règles ouverts](https://github.com/betagouv/mon-entreprise), notamment `modele-social`, et le moteur [Publicodes](https://github.com/publicodes/publicodes). Ne pas recopier les règles fiscales en Python par défaut.
+
+L’intégration n’est pas encore décidée : appel de l’API REST depuis Django ou exécution du moteur JavaScript avec règles épinglées. Cela demande un choix explicite sur reproductibilité, réseau, déploiement et traçabilité ; aucune dépendance métier n’est installée à ce stade. Garder distincts la version du moteur, la version du modèle, la date d’effet, les hypothèses, unités, avertissements et variables manquantes. Une valeur numérique seule ne prouve pas qu’une simulation est complète ou applicable au cas demandé.
+
+La prochaine conception devra vérifier les cas SASU/EI/EURL et les variantes fiscales sur des scénarios de référence du site officiel, ainsi que leurs sources réglementaires. Aucun skill spécialisé officiel ou largement adopté n’a été identifié et vérifié ; les skills génériques installés ne constituent pas une validation fiscale.
+
+### Règles d’évolution
+
 YAGNI et KISS : ajouter une abstraction, dépendance ou couche pour un problème présent et identifiable. L’intérieur d’un module reste proportionné à sa complexité.
 
 Ce fichier décrit l’architecture actuelle et ses invariants. Une décision durable ou exception coûteuse peut justifier un ADR court, référencé ici ; ne pas créer un second document d’architecture concurrent. Le [workflow de développement](docs/development.md) définit la mise à jour et l’arbitrage des conflits.

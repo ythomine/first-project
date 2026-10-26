@@ -1,0 +1,6 @@
+# MCP du projet ; chargement dépendant de la confiance accordée au dépôt par Codex.
+# Aucune clé stockée ici. Une clé facultative se configure dans les paramètres personnels.
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+startup_timeout_sec = 10
+tool_timeout_sec = 30

@@ -25,6 +25,7 @@ Lire [README.md](README.md), [ARCHITECTURE.md](ARCHITECTURE.md) et la tâche con
 - Les explorations peuvent être déléguées ; un responsable garde l’intégration. Ne paralléliser les écritures que sur des périmètres et interfaces indépendants.
 - **Toute revue utilise un reviewer distinct en contexte frais**, sans historique ni raisonnement de l’auteur. Ici, lancer un nouveau sous-agent avec `fork_turns="none"`. Fournir besoin, critères, règles et diff exact ; revue en lecture seule. Après correction substantielle, faire revoir le diff final dans un nouveau contexte.
 - Préserver le travail utilisateur. En tâche cloud déjà isolée, utiliser le checkout existant ; ne pas créer de worktree sans demande explicite.
+- Skills tiers : provenance et empreintes dans `.agents/skills/lock.json`, usage dans `docs/development.md`. Leurs permissions ne dépassent jamais celles de la tâche. Respecter nos revues fraîches et le backlog Markdown ; remonter tout conflit non résolu avant application d’une convention tierce. Ne pas installer tout un framework ni créer de documents supplémentaires automatiquement.
 
 ## Autorisations et compte rendu
 

@@ -35,6 +35,8 @@ addopts = "--import-mode=importlib --strict-markers"
 [tool.ruff]
 target-version = "py313"
 line-length = 100
+# Sources tierces épinglées : conserver leur style et leurs empreintes upstream.
+extend-exclude = [".agents/skills/skill-creator/scripts"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "DJ"]
